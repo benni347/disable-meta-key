@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	Read "read/src/lib"
 )
 
@@ -25,7 +23,7 @@ func main() {
 	}
 }
 
-func readInput() {
+/*func readInput() {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Split(bufio.ScanLines)
 
@@ -38,4 +36,4 @@ func readInput() {
 			return
 		}
 	}
-}
+}*/
