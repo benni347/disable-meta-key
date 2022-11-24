@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
-	path := "testdata/read/1.txt"
+	path := "/home/cdrc/.config/kwinrc"
 	file, err := Read.ReadFile(path)
 	if err != nil {
-		return
+		fmt.Printf("The error of read is: %s\n", err)
 	}
 	var lineCont []byte
 	fmt.Printf(string(rune(len(file))) + "\n")
