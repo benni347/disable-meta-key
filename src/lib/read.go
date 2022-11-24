@@ -1,4 +1,4 @@
-package main
+package lib
 
 import (
 	"bufio"
@@ -9,16 +9,18 @@ import (
 	"path/filepath"
 )
 
-func main() {
-	path := "test.txt"
-	content, err := readFile(path)
-	if err != nil {
-		fmt.Printf("Error: %s\n\n", err)
+/*
+	func main() {
+		path := "test.txt"
+		content, err := readFile(path)
+		if err != nil {
+			fmt.Printf("Error: %s\n\n", err)
+		}
+		fmt.Printf("The content of '%s' : \n%s\n", path, content)
 	}
-	fmt.Printf("The content of '%s' : \n%s\n", path, content)
-}
-
-func readFile(path string) ([]byte, error) {
+*/
+// This function takes the path parameter which is a string of the path were the file is located.
+func ReadFile(path string) ([]byte, error) {
 	parentPath, err := os.Getwd()
 	if err != nil {
 		return nil, err

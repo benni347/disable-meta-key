@@ -1,16 +1,9 @@
-package main
+package lib
 
 import (
 	"log"
 	"os"
 )
-
-func main() {
-	path := "test2.txt"
-	content := "Hello World!\nDD"
-	appendFile(path, content)
-
-}
 
 func appendFile(path string, content string) {
 	f, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
