@@ -16,14 +16,12 @@ func main() {
 	var lineCont []byte
 	fmt.Printf(string(rune(len(file))) + "\n")
 	for i := 0; i < len(file); i++ {
-
 		if string(file[i]) == "\n" {
 			fmt.Printf("{%s}, i={%d} \n", string(lineCont), i) // FIXME: Currently this prints the nth char and not the nth word.
 			var lineCont []byte                                // TODO: Implement this so I can set the lineCont var to a nil value, and call it on the next line again.
 		} else {
 			lineCont := append(lineCont, file[i]) // FIXME: This should be callable from inside the if operation so I can print the lineCont
 		}
-
 	}
 }
 

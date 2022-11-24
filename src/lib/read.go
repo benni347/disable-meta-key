@@ -47,7 +47,6 @@ func read(fdR io.Reader) ([]byte, error) {
 
 	for {
 		ba, isPrefix, err := br.ReadLine()
-
 		if err != nil {
 			if err == io.EOF {
 				break
