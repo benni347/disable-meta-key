@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	path := "/home/cdrc/.config/kwinrc"
+	path := "./testdata/read/1.txt"
 	file, err := Read.ReadFile(path)
 	if err != nil {
 		fmt.Printf("The error of read is: %s\n", err)
@@ -22,18 +22,3 @@ func main() {
 		}
 	}
 }
-
-/*func readInput() {
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Split(bufio.ScanLines)
-
-	for scanner.Scan() {
-		fmt.Println(scanner.Text()) // Println will add back the final '\n'
-	}
-	if err := scanner.Err(); err != nil {
-		_, err2 := fmt.Fprintln(os.Stderr, "reading standard input:", err)
-		if err2 != nil {
-			return
-		}
-	}
-}*/
