@@ -26,6 +26,7 @@ func ReadFile(path string) ([]byte, error) {
 
 	var regexCwd = regexp.MustCompile(`(?m)\./.*\n`) // regexCwd checks if it is in the current working directory.
 	var regexSys = regexp.MustCompile(`(?m)/home.*\n|/dev.*\n|/sys/.*\n`)
+	// FIXME: At the moment this always returns the error.
 	if regexCwd.Find([]byte(path)) != nil {
 		parentPath, err := os.Getwd()
 		if err != nil {
@@ -59,7 +60,7 @@ func ReadFile(path string) ([]byte, error) {
 		}(file)
 		return read(file)
 	} else {
-		var err = errors.New("the given path isn't valid to read from,  + regexCwd")
+		var err = errors.New("the given path isn't valid to read from")
 		return nil, err
 	}
 }
