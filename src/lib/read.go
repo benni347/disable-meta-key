@@ -11,17 +11,8 @@ import (
 	"regexp"
 )
 
-/*
-	func main() {
-		path := "test.txt"
-		content, err := readFile(path)
-		if err != nil {
-			fmt.Printf("Error: %s\n\n", err)
-		}
-		fmt.Printf("The content of '%s' : \n%s\n", path, content)
-	}
-*/
-// This function takes the path parameter which is a string of the path were the file is located.
+// ReadFile takes the path parameter which is a string of the path were the file is located
+// return a byte array with the content and if necessary an error.
 func ReadFile(path string) ([]byte, error) {
 	regexCwd := regexp.MustCompile(`(?m)\./.*\n`) // regexCwd checks if it is in the current working directory.
 	regexSys := regexp.MustCompile(`(?m)/home.*\n|/dev.*\n|/sys/.*\n`)
@@ -39,9 +30,9 @@ func ReadFile(path string) ([]byte, error) {
 		}
 
 		defer func(file *os.File) {
-			err := file.Close()
-			if err != nil {
-				fmt.Println(err)
+			err2 := file.Close()
+			if err2 != nil {
+				fmt.Println(err2)
 			}
 		}(file)
 		return read(file)
@@ -52,9 +43,9 @@ func ReadFile(path string) ([]byte, error) {
 		}
 
 		defer func(file *os.File) {
-			err := file.Close()
-			if err != nil {
-				fmt.Println(err)
+			err2 := file.Close()
+			if err2 != nil {
+				fmt.Println(err2)
 			}
 		}(file)
 		return read(file)
