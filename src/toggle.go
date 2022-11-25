@@ -18,14 +18,15 @@ func main() {
 	if err != nil {
 		fmt.Printf("The error of read is: %s\n", err)
 	}
-	var lineCont []byte
-	fmt.Printf(string(rune(len(file))) + "\n")
+	var fileLineContent []byte
+	/*	var lenPrevious int*/
+	/*fmt.Printf(string(file) + "\n")*/
 	for i := 0; i < len(file); i++ {
 		if string(file[i]) == "\n" {
-			fmt.Printf("%s\n", string(lineCont)) // This should print the line till it reaches the \n char.
-			lineCont = nil
+			fmt.Printf("%s\n", string(fileLineContent)) // This should print the line till it reaches the \n char.
+			fileLineContent = nil
 		} else {
-			lineCont = append(lineCont, file[i])
+			fileLineContent = append(fileLineContent, file[i])
 		}
 	}
 }
