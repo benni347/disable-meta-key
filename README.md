@@ -11,6 +11,6 @@ Meta=
 So the meta key is set to nothing and if you press it again it will remove it via reading the file.
 ## Planned Features
 - remove the lines if already present to deactivate it. □
-- Get the current user so to go to the correct users home. □
+- Get the current user so to go to the correct users home. ☑
 - Write the lines to the file. □
 - Fix bugs □
