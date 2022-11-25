@@ -22,7 +22,7 @@ func main() {
 	fmt.Printf(string(rune(len(file))) + "\n")
 	for i := 0; i < len(file); i++ {
 		if string(file[i]) == "\n" {
-			fmt.Printf("{%s}, i={%d} \n", string(lineCont), i) // This should print the line till it reaches the \n char.
+			fmt.Printf("%s\n", string(lineCont)) // This should print the line till it reaches the \n char.
 			lineCont = nil
 		} else {
 			lineCont = append(lineCont, file[i])
