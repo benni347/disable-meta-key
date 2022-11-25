@@ -15,7 +15,7 @@ import (
 // return a byte array with the content and if necessary an error.
 func ReadFile(path string) ([]byte, error) {
 	regexCwd := regexp.MustCompile(`(?m)\./.*\n|\./.*`) // regexCwd checks if it is in the current working directory.
-	regexSys := regexp.MustCompile(`(?m)/home.*\n|/home.*|/dev.*\n|/sys/.*\n`)
+	regexSys := regexp.MustCompile(`(?m)/home.*\n|/home.*|/dev.*\n|/dev.*|/sys.*\n|/sys.*`)
 	if regexCwd.Find([]byte(path)) != nil {
 		parentPath, err := os.Getwd()
 		if err != nil {
@@ -55,11 +55,11 @@ func ReadFile(path string) ([]byte, error) {
 }
 
 func read(fdR io.Reader) ([]byte, error) {
-	br := bufio.NewReader(fdR)
-	var buf bytes.Buffer
+	bufioReader := bufio.NewReader(fdR)
+	var buffer bytes.Buffer
 
 	for {
-		ba, isPrefix, err := br.ReadLine()
+		readLine, isPrefix, err := bufioReader.ReadLine()
 		if err != nil {
 			if err == io.EOF {
 				break
@@ -67,11 +67,11 @@ func read(fdR io.Reader) ([]byte, error) {
 			return nil, err
 		}
 
-		buf.Write(ba)
+		buffer.Write(readLine)
 		if !isPrefix {
-			buf.WriteByte('\n')
+			buffer.WriteByte('\n')
 		}
 
 	}
-	return buf.Bytes(), nil
+	return buffer.Bytes(), nil
 }
