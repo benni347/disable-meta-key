@@ -16,7 +16,6 @@ import (
 func ReadFile(path string) ([]byte, error) {
 	regexCwd := regexp.MustCompile(`(?m)\./.*\n|\./.*`) // regexCwd checks if it is in the current working directory.
 	regexSys := regexp.MustCompile(`(?m)/home.*\n|/home.*|/dev.*\n|/sys/.*\n`)
-	// FIXME: At the moment this always returns the error.
 	if regexCwd.Find([]byte(path)) != nil {
 		parentPath, err := os.Getwd()
 		if err != nil {
