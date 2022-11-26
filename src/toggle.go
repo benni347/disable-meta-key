@@ -21,12 +21,14 @@ func main() {
 	}
 
 	exists, below := checkIfLinesExist(file)
-	if (exists && !below) && exists == true {
+	if exists && !below { // Then we only want to add Meta=
 		fmt.Printf("Exists.\n")
-	} else if exists && below {
+	} else if exists && below { // Then we only want to remove the line Meta=
 		fmt.Printf("Exists2.\n")
-	} else if (!exists && below) && exists == false {
+	} else if !exists && below { // Then we want to remove both lines
 		fmt.Printf("Exists3.\n")
+	} else if !exists && !below { // Then we want to add both
+
 	}
 
 }
