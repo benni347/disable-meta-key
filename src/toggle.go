@@ -30,7 +30,6 @@ func main() {
 	} else if !exists && !below { // Then we want to add both
 		fmt.Printf("Exists.4")
 	}
-
 }
 
 // checkIfLinesExist checks if the lines for the meta key already exists in the config
