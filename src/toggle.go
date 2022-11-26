@@ -41,13 +41,13 @@ func main() {
 func checkIfLinesExist(fileContent []byte) (bool, bool) {
 	regexLineOnlyModifier := regexp.MustCompile(`(?m)\[ModifierOnlyShortcuts]`)
 	regexLineModifierAndMetaLinesBetween := regexp.MustCompile(`(?m)\[ModifierOnlyShortcuts]([a-zA-Z]*\n)*Meta=`)
-	regexLineModifierAndMetaBelow := regexp.MustCompile(`(?m)\[ModifierOnlyShortcuts]\nMeta=`)
-	if regexLineOnlyModifier.Find([]byte(fileContent)) != nil {
-		return true, false
+	regexLineModifierAndMetaBelow := regexp.MustCompile(`(?m)\[ModifierOnlyShortcuts]\n*Meta=`)
+	if regexLineModifierAndMetaBelow.Find([]byte(fileContent)) != nil {
+		return false, true
 	} else if regexLineModifierAndMetaLinesBetween.Find([]byte(fileContent)) != nil {
 		return true, true
-	} else if regexLineModifierAndMetaBelow.Find([]byte(fileContent)) != nil {
-		return false, true
+	} else if regexLineOnlyModifier.Find([]byte(fileContent)) != nil {
+		return true, false
 	}
 	return false, false
 }
