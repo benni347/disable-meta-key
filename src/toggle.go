@@ -28,7 +28,7 @@ func main() {
 	} else if !exists && below { // Then we want to remove both lines
 		fmt.Printf("Exists3.\n")
 	} else if !exists && !below { // Then we want to add both
-
+		fmt.Printf("Exists.4")
 	}
 
 }
