@@ -19,17 +19,16 @@ func main() {
 	if err != nil {
 		fmt.Printf("The error of read is: %s\n", err)
 	}
-	var fileLineContent []byte
-	/*	var lenPrevious int*/
-	/*fmt.Printf(string(file) + "\n")*/
-	for i := 0; i < len(file); i++ {
-		if string(file[i]) == "\n" {
-			fmt.Printf("%s\n", string(fileLineContent)) // This should print the line till it reaches the \n char.
-			fileLineContent = nil
-		} else {
-			fileLineContent = append(fileLineContent, file[i])
-		}
+
+	exists, below := checkIfLinesExist(file)
+	if (exists && !below) && exists == true {
+		fmt.Printf("Exists.\n")
+	} else if exists && below {
+		fmt.Printf("Exists2.\n")
+	} else if (!exists && below) && exists == false {
+		fmt.Printf("Exists3.\n")
 	}
+
 }
 
 // checkIfLinesExist checks if the lines for the meta key already exists in the config
