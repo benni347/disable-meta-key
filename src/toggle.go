@@ -28,9 +28,7 @@ func main() {
 	} else if !exists && below { // Then we want to remove both lines
 		fmt.Printf("Exists3.\n")
 	} else if !exists && !below { // Then we want to add both
-
 	}
-
 }
 
 // checkIfLinesExist checks if the lines for the meta key already exists in the config
